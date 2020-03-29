@@ -15,19 +15,12 @@ namespace KizhiPart3
             var test = new string[]
             {
                 "set code",
-                "print a\n" +
-                "call test\n" +
+                "set a 5\n" +
                 "def test\n" +
-                "    set a 5\n" +
-                "    sub a 3\n" +
-                "    print b\n" +
-                "call test",
+                "    print a\n" +
+                "    call test",
                 "end set code",
-//                "add break 2",
-                "run",
-                "print mem",
-                //"run",
-                //"print mem"
+                "run"
             };
             foreach (var s in test)
             {

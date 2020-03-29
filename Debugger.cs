@@ -74,7 +74,7 @@ namespace KizhiPart3
                 return;
             }
 
-            ExecuteCommand(command);
+            ExecuteKizhiCommand(command);
         }
 
         private void ParseCodeLines(string[] lines)
@@ -112,7 +112,7 @@ namespace KizhiPart3
             }
         }
 
-        private void ExecuteCommand(string command)
+        private void ExecuteKizhiCommand(string command)
         {
             var parsedCommand = command.Trim().Split();
             if (kizhiCommands.ContainsKey(parsedCommand[0]))
@@ -136,7 +136,7 @@ namespace KizhiPart3
                 }
 
                 Step(_);
-                if (currentLineIndex == 0)
+                if (currentLineIndex == 0) // Program run has been completed
                 {
                     return;
                 }
@@ -152,7 +152,7 @@ namespace KizhiPart3
                 return;
             }
 
-            ExecuteCommand(codeLines[currentLineIndex]);
+            ExecuteKizhiCommand(codeLines[currentLineIndex]);
             GetNextLineToExecute();
         }
 
@@ -221,7 +221,7 @@ namespace KizhiPart3
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException(args[2], "Value should be greater than 0");
+                    throw new ArgumentOutOfRangeException(value.ToString(), "Value should be greater than 0");
                 }
             }
         }
@@ -235,7 +235,7 @@ namespace KizhiPart3
                 {
                     if (value < 0)
                     {
-                        throw new ArgumentOutOfRangeException(args[2], "Value should be greater than 0");
+                        throw new ArgumentOutOfRangeException(value.ToString(), "Value should be greater than 0");
                     }
 
                     if (variables[name].Value < value)
